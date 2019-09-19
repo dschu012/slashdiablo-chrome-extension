@@ -1,0 +1,8 @@
+#plugin-header-root button {
+  color: #ffead4;
+  font-family: Exocet Light,sans-serif;
+}
+
+#plugin-header-root {
+  position: absolute;
+}
