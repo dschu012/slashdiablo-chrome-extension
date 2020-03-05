@@ -40,7 +40,7 @@
     let reactAppInstance = reactRoot[reactProp]._renderedChildren[".0"]._instance;
     $.getJSON(`/retrieving/v1/character?name=${reactAppInstance.props.params.name}`,  (response) => {
       try {
-        d2s.write(response.character.d2s).then((data) => {
+        d2s.write(response.character.d2s, constants.constants).then((data) => {
           let blob = new Blob([data], { type: "octet/stream" });
           link.href = window.URL.createObjectURL(blob);
           link.download = response.character.d2s.header.name + '.d2s';

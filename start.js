@@ -1,7 +1,7 @@
 //https://stackoverflow.com/a/9517879/597419
 
 
-const files = ["css/styles.css", "lib/jquery-3.3.1.min.js", "lib/d2s.bundle.min.js", "index.js"];
+const files = ["css/styles.css", "lib/jquery-3.3.1.min.js", "lib/constants.bundle.min.js", "lib/d2s.bundle.min.js", "index.js"];
 
 let init = function(i) {
   if(i >= files.length) {
