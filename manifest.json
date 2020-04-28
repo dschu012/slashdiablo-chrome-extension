@@ -6,6 +6,9 @@
     "permissions": [
         "activeTab"
     ],
+    "icons": {
+        "16": "img/16.png"
+    },
     "content_scripts": [
         {
             "matches": [
