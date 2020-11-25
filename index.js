@@ -38,7 +38,7 @@
     let reactRoot = document.querySelector('div[data-reactroot]');
     let reactProp = Object.getOwnPropertyNames(reactRoot)[0];
     let reactAppInstance = reactRoot[reactProp]._renderedChildren[".0"]._instance;
-    $.getJSON(`/retrieving/v1/character?name=${reactAppInstance.props.params.name}`,  (response) => {
+    $.getJSON(`/api/v1/characters?name=${reactAppInstance.props.params.name}`,  (response) => {
       try {
         d2s.write(response.character.d2s, constants.constants).then((data) => {
           let blob = new Blob([data], { type: "octet/stream" });
