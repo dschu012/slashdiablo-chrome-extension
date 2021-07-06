@@ -1,7 +1,10 @@
 //https://stackoverflow.com/a/9517879/597419
 
 
-const files = ["css/styles.css", "lib/jquery-3.3.1.min.js", "lib/constants.bundle.min.js", "lib/d2s.bundle.min.js", "index.js"];
+let files = ["css/styles.css", "lib/jquery-3.3.1.min.js", "lib/constants.bundle.min.js"];
+
+const armory_files = ["lib/constants.bundle.min.js", "lib/d2s.bundle.min.js", "armory.js"];
+const grail_files = ["lib/constants.bundle.min.js", "grail.js"];
 
 let init = function(i) {
   if(i >= files.length) {
@@ -23,4 +26,11 @@ let init = function(i) {
   }
   (document.head || document.documentElement).appendChild(s);
 }
+
+if(location.host.startsWith('armory')) {
+  files = files.concat(...armory_files);
+} else if(location.host.startsWith('grail')) {
+  files = files.concat(...grail_files);
+}
+
 init(0);

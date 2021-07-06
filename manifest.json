@@ -9,8 +9,8 @@
     "content_scripts": [
         {
             "matches": [
-            "https://armory.slashdiablo.net/character/*",
-            "https://armory.slashgaming.net/character/*"
+            "https://*.slashdiablo.net/*",
+            "https://*.slashgaming.net/*"
             ],
             "js": [
             "start.js"
@@ -26,6 +26,7 @@
       "lib/jquery-3.3.1.min.js",
       "lib/constants.bundle.min.js",
       "lib/d2s.bundle.min.js",
-      "index.js"
+      "armory.js",
+      "grail.js"
     ]
 }

@@ -1,5 +1,7 @@
 (($) => {
 
+  if(!location.pathname.startsWith('/character')) return;
+
   /* Hidden link for saving the char */
   let link = document.createElement('a');
   link.style.display = 'none';
