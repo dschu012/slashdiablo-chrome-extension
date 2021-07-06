@@ -17,19 +17,19 @@
   }
 
   $(document).on('click', '#export', (event) => {
-    let all_uniques = [].concat(...window.constants.constants.unq_items);
-    let all_sets = [].concat(...window.constants.constants.set_items);
+    let all_uniques = [].concat(...window.constants.constants.unq_items.map((e,i) => { e.i = i; return e; }));
+    let all_sets = [].concat(...window.constants.constants.set_items.map((e,i) => { e.i = i; return e; }));
     let account = location.pathname.split('/')[2];
     $.getJSON(`/api/v1/items?account=${account}`, (response) => {
       console.log(response);
       for(let item of response) {
         //set
         if(item.data.quality === 5) {
-          all_sets = all_sets.filter(value => value.n !== item.data.set_name);
+          all_sets = all_sets.filter(value => value.i !== item.data.set_id);
         }
         //unq
         if(item.data.quality === 7) {
-          all_uniques = all_uniques.filter(value => value.n !== item.data.unique_name);
+          all_uniques = all_uniques.filter(value => value.i !== item.data.unique_id);
         }
       }
       let lines = [`//MISSING GRAIL SETS - ${all_sets.length}`];
