@@ -22,11 +22,10 @@
 
     //quest items and such
     let filtered_uniques = [123,124,125,126,127,128,263];
-    all_uniques = all_uniques.filter(value => filtered_uniques.includes(value.i));
+    all_uniques = all_uniques.filter(value => !filtered_uniques.includes(value.i));
 
     let account = location.pathname.split('/')[2];
     $.getJSON(`/api/v1/items?account=${account}`, (response) => {
-      console.log(response);
       for(let item of response) {
         //set
         if(item.data.quality === 5) {
