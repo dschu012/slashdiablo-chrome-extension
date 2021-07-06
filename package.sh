@@ -5,7 +5,8 @@ mkdir -p bin
 7z a -tzip ./bin/package.zip \
     manifest.json \
     start.js    \
-    index.js    \
+    armory.js    \
+    grail.js    \
     README.md   \
     lib         \
     img         \
