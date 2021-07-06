@@ -19,6 +19,11 @@
   $(document).on('click', '#export', (event) => {
     let all_uniques = [].concat(...window.constants.constants.unq_items.map((e,i) => { e.i = i; return e; }));
     let all_sets = [].concat(...window.constants.constants.set_items.map((e,i) => { e.i = i; return e; }));
+
+    //quest items and such
+    let filtered_uniques = [123,124,125,126,127,128,263];
+    all_uniques = all_uniques.filter(value => filtered_uniques.includes(value.i));
+
     let account = location.pathname.split('/')[2];
     $.getJSON(`/api/v1/items?account=${account}`, (response) => {
       console.log(response);
