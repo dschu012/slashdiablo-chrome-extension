@@ -1,6 +1,6 @@
 {
     "name": "Slash Diablo Tools",
-    "version": "0.7",
+    "version": "0.8",
     "description": "Adds a save button the slashdiablo's armory. Maybe someday more to come...",
     "manifest_version": 2,
     "icons": {
