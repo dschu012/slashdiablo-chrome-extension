@@ -21,8 +21,11 @@
     let all_sets = [].concat(...window.constants.constants.set_items.map((e,i) => { e.i = i; return e; }));
 
     //quest items and such
-    let filtered_uniques = [123,124,125,126,127,128,263];
+    let filtered_uniques = [29,123,124,125,126,127,128,263,346];
     all_uniques = all_uniques.filter(value => !filtered_uniques.includes(value.i));
+
+    all_sets = all_sets.filter(value => !!value.c);
+    all_uniques = all_uniques.filter(value => !!value.c);
 
     let account = location.pathname.split('/')[2];
     $.getJSON(`/api/v1/items?account=${account}`, (response) => {
@@ -36,6 +39,7 @@
           all_uniques = all_uniques.filter(value => value.i !== item.data.unique_id);
         }
       }
+
       let lines = [`//MISSING GRAIL SETS - ${all_sets.length}`];
       for(let set of all_sets) {
         if(!set.c) continue;
