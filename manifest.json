@@ -16,7 +16,8 @@
             "start.js"
             ],
             "permissions": [
-            "storage"
+            "storage",
+            "clipboardWrite"
             ],
             "run_at": "document_end"
         }
@@ -28,5 +29,10 @@
       "lib/d2s.bundle.min.js",
       "armory.js",
       "grail.js"
-    ]
+    ],
+    "permissions": [ "storage" ],
+    "options_ui": {
+        "page": "options.html",
+        "open_in_tab": false
+    }
 }

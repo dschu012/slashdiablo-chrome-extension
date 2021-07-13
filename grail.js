@@ -43,17 +43,15 @@
       let lines = [`//MISSING GRAIL SETS - ${all_sets.length}`];
       for(let set of all_sets) {
         if(!set.c) continue;
-        lines.push(`ItemDisplay[SET (!ID ${set.c})]: %PURPLE%Grail o %GOLD%%NAME%%BORDER-00%%MAP-0C%\t\t\t\t\t\t//${set.n} - ${lookupCode(set.c).n}`);
+        lines.push(`ItemDisplay[SET (!ID ${set.c})]: __SET_STYLE__\t\t\t\t\t\t//${set.n} - ${lookupCode(set.c).n}`);
       }
       lines.push(`//MISSING GRAIL UNIQUES - ${all_uniques.length}`)
       for(let unq of all_uniques) {
         if(!unq.c) continue;
-        lines.push(`ItemDisplay[UNI (!ID ${unq.c})]: %PURPLE%Grail o %GOLD%%NAME%%BORDER-00%%MAP-0C%\t\t\t\t\t\t//${unq.n} - ${lookupCode(unq.c).n}`);
+        lines.push(`ItemDisplay[UNI (!ID ${unq.c})]: __UNIQUE_STYLE__\t\t\t\t\t\t//${unq.n} - ${lookupCode(unq.c).n}`);
       }
-      navigator.clipboard.writeText(lines.join('\n'))
-      .then(() => {
-        alert("BH Filter was copied to clipboard. Paste it at the beginning of your UNIQUES AND SETS filter section.");
-      })
+
+      document.dispatchEvent(new CustomEvent('copy-item-filter-clipboard', { detail: { lines: lines }}));
     });
 
   });

@@ -33,4 +33,22 @@ if(location.host.startsWith('armory')) {
   files = files.concat(...grail_files);
 }
 
+document.addEventListener('copy-item-filter-clipboard', function (e) {
+  var lines = e.detail.lines;
+  chrome.storage.sync.get({
+    setItemStyle: '%PURPLE%Grail o %GREEN%%NAME%%BORDER-00%%MAP-0C%',
+    unqItemStyle: '%PURPLE%Grail o %GOLD%%NAME%%BORDER-00%%MAP-0C%'
+  }, function(items) {
+    for(var i = 0; i < lines.length; i++) {
+      lines[i] = lines[i].replace('__SET_STYLE__', items.setItemStyle);
+      lines[i] = lines[i].replace('__UNIQUE_STYLE__', items.unqItemStyle);
+    }
+    navigator.clipboard.writeText(lines.join('\n'))
+    .then(() => {
+      alert("BH Filter was copied to clipboard. Paste it at the beginning of your UNIQUES AND SETS filter section.");
+    });
+  });
+});
+
 init(0);
+
