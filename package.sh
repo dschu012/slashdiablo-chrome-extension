@@ -7,6 +7,8 @@ mkdir -p bin
     start.js    \
     armory.js    \
     grail.js    \
+    options.js \
+    options.html \
     README.md   \
     lib         \
     img         \
